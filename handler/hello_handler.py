@@ -6,9 +6,10 @@
 # @Author : naah
 # @desc :
 from tornado import gen
+from tornado.web import RequestHandler
 
 
-class HelloHandler(object):
+class HelloHandler(RequestHandler):
     @gen.coroutine
     def get(self):
         self.write("Hello, world")
