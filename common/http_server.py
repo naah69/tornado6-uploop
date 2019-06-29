@@ -21,7 +21,7 @@ class TornadoUVloopHttpServer(object):
     __http_server = None
 
     @staticmethod
-    def get_instance(app: tornado.Application, port: int, process_num: int = 1):
+    def get_instance(app: tornado.web.Application, port: int, process_num: int = 1):
         """
         singleton class
         :param app: tornado app
@@ -38,7 +38,7 @@ class TornadoUVloopHttpServer(object):
         return cls._instance
 
     @classmethod
-    def __init(cls, app: tornado.Application, port: int, process_num: int):
+    def __init(cls, app: tornado.web.Application, port: int, process_num: int):
         cls.__http_server = HTTPServer(app)
         cls.__http_server.bind(port)
         cls.__process_num = process_num
